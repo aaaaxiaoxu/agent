@@ -1,0 +1,45 @@
+server:
+  port: 8123
+  servlet:
+    context-path: /api
+
+spring:
+  application:
+    name: advx
+  profiles:
+    active: local
+  # 数据库配置
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3307/advx
+    username: root
+    password: 123456
+  mail:
+    protocol: smtp
+    host: smtp.163.com
+    port: 25
+    username: m19120557714@163.com
+    password: AHaWkJtvKFcFYyZk
+    default-encoding: UTF-8 #编码字符集
+    properties:
+      mail:
+        debug: true # 开始debug 完整打印日志
+
+
+# springdoc-openapi
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+    tags-sorter: alpha
+    operations-sorter: alpha
+  api-docs:
+    path: /v3/api-docs
+  group-configs:
+    - group: 'default'
+      paths-to-match: '/**'
+      packages-to-scan: com.adx.agent.controller
+# knife4j
+knife4j:
+  enable: true
+  setting:
+    language: zh_cn
